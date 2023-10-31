@@ -72,7 +72,7 @@ act as logic elements that combine the state of the buttons.
 Clock Input: The output of each OR gate is then linked to an AND gate.
 Additionally, the state of a clock signal is provided as the second input to these
 AND gates.
->Parking Lights: When the parking lights button is pressed, it activates both OR
+Parking Lights: When the parking lights button is pressed, it activates both OR
 gates, causing both left and right indicators to blink. The clock signal plays a
 crucial role here.
 Indicator Activation:
