@@ -50,11 +50,11 @@ The miniproject is called smart bicycle, its main functions are displaying the
 bicycle's speed(km/hr),distance travelled by the bicycle(m), also a button for
 indicators if the user wants to take a turn etc, so the the implementation of all
 the features can be divided into 4 major parts.
-1.Clock handling(for displaying accurate speed and reseting it)
-2.Calculating current speed and distance travelled(Using flipflops and adders)
-3.Implementing the indicator
-Let us start with indicator part:
-Indicator Buttons:
+>1.Clock handling(for displaying accurate speed and reseting it)
+>2.Calculating current speed and distance travelled(Using flipflops and adders)
+>3.Implementing the indicator
+>Let us start with indicator part:
+>Indicator Buttons:
 You have three buttons - left indicator, right indicator, and parking lights. Each
 button serves a specific purpose:
 Left Indicator: When pressed, this button activates the left turn indicator,
@@ -72,7 +72,7 @@ act as logic elements that combine the state of the buttons.
 Clock Input: The output of each OR gate is then linked to an AND gate.
 Additionally, the state of a clock signal is provided as the second input to these
 AND gates.
-Parking Lights: When the parking lights button is pressed, it activates both OR
+>Parking Lights: When the parking lights button is pressed, it activates both OR
 gates, causing both left and right indicators to blink. The clock signal plays a
 crucial role here.
 Indicator Activation:
@@ -100,7 +100,7 @@ magnet is detected and then we need to copy it(the output stays constant for
 the second and keeps getting updated every second) and then reset it. The
 speed counter is of 9 bits and the distance counter is of 13 bits, we can store the
 values in D flipflops and use full adder/half adder to increase the value.
-Clock handling part:
+>Clock handling part:
 Now we could just use a simple 1hz clock to reset and copy it but there are 2
 main problems. 1)Inaccurate, after some research we found out that 1hz clocks
 can be very inaccurate and unreliable) 2)Delay between copy and reset, One
@@ -113,16 +113,16 @@ is given out to reset it, so to copy before this we also send another pulse if t
 bit configuration is 1110(which is just before 1111) so the speed value is copied
 just before it is reset.
 >Functional Table:
-Inputs Result
-HES (1sec Pulse) (0.9sec Pulse)  Speed  Distance
-0 0 0 NA NA
-0 0 1 Updates Display NA
-0 1 0 Resets Speed NA
-0 1 1 -----------------------------------
-1 0 0 +1.8 to Hidden speed +0.5 to distance and Updates
-1 0 1 (Updates speed) (+0.5 to Distance and Updates)
-1 1 0 (Resets Speed) (+0.5 to Distance and Updates)
-1 1 1 ---------------------------------------
+>Inputs Result
+>HES (1sec Pulse) (0.9sec Pulse)  Speed  Distance
+>0 0 0 NA NA
+>0 0 1 Updates Display NA
+>0 1 0 Resets Speed NA
+>0 1 1 -----------------------------------
+>1 0 0 +1.8 to Hidden speed +0.5 to distance and Updates
+>1 0 1 (Updates speed) (+0.5 to Distance and Updates)
+>1 1 0 (Resets Speed) (+0.5 to Distance and Updates)
+>1 1 1 ---------------------------------------
 </details>
 
 <!-- Fourth Section -->
