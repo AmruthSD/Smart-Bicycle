@@ -192,13 +192,100 @@ HES (1sec Pulse) (0.9sec Pulse)  Speed  Distance
 <details>
   <summary>Detail</summary>
 
-  > Neatly update the Verilog code in code style only.
+.V file
+  ```
+module speed(clk,reset,result);
+  input clk,reset;
+  output [8:0]result;
+  reg [8:0] spe;
+  always @(posedge clk or posedge reset) begin
+    if (reset) begin
+      spe <= 9'b0;
+    end else begin
+      spe <= spe + 18;
+    end
+
+  end
+  assign result = spe;
+
+endmodule
+
+module distance(clk,reset2,result);
+  input clk,reset2;
+  output [12:0]result;
+  reg [12:0]dist;
+  always @(posedge clk or posedge reset2) begin
+    if (reset2) begin
+      dist <= 13'b0;
+    end else begin
+      dist <= dist + 5;
+    end
+  end
+  assign result = dist;
+endmodule
+
+```
+
+Test Bench
+
+```
+module miniproject_tb;
+
+  reg clk;        
+  reg reset,reset2;       
+  wire [8:0] result1;
+  wire [12:0] result2; 
+
+  speed M1(clk,reset,result1);
+  distance M2(clk,reset2,result2);
+  // Assuming hall effect sensor as a clock with 100Hz frequency
+  always begin
+    #5 clk = ~clk;
+  end
+  initial begin
+    #5 reset2=~reset2;
+    #5 reset2=~reset2;
+    #5 reset=~reset;
+    #5 reset=~reset;
+  end
+  // Reset value (1 Hz)
+  always begin
+    #500 reset = ~reset;
+    #5 reset= ~reset;
+  end
+  
+  initial begin
+    $display("Time,Speed,Distance");
+    $monitor("%d, %b %b", $time,result1,result2);
+    #10000 $finish;
+  end
+
+  initial begin
+    clk = 0;
+    reset = 0;
+    reset2=0;
+  end
+
+endmodule
+
+```
 </details>
 
 <!-- Sixth Section -->
-## Verilog Code
+## References
 <details>
   <summary>Detail</summary>
 
-  > Update ~5 references in order
+  1. Building a Digital Speedometer by zagGrad
+https://www.sparkfun.com/tutorials/123
+2. EMBEDDED LINUX, FEATURED, SPEEDOMETER PROJECT
+by Braden Sunwold
+https://barenakedembedded.com/diy-speedometer//
+3. Bike Turning Signal Circuit by Iftar Rafiq
+https://www.electronicshub.org/bike-turningsignalcircuit/#:~:text=Breadboard
+4. Basic working of D flip
+flophttps://www.geeksforgeeks.org/d-flipflop/#:~:text=The%20basic%20working%20of%20D,the%
+20flip%20flop's%20Q%20output
+5. Asynchronous Counter
+https://electronicscoach.com/asynchronous-counter.html
 </details>
