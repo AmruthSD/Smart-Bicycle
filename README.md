@@ -134,13 +134,13 @@ HES (1sec Pulse) (0.9sec Pulse)  Speed  Distance
 
 0 0 0 NA NA
 
-0 0 1 Updates Display NA
+0 0 1 (Updates Display) NA
 
-0 1 0 Resets Speed NA
+0 1 0 (Resets Speed) NA
 
 0 1 1 -----------------------------------
 
-1 0 0 +1.8 to Hidden speed +0.5 to distance and Updates
+1 0 0 (+1.8 to Hidden speed) (+0.5 to distance and Updates)
 
 1 0 1 (Updates speed) (+0.5 to Distance and Updates)
 
