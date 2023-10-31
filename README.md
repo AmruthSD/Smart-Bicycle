@@ -153,8 +153,38 @@ HES (1sec Pulse) (0.9sec Pulse)  Speed  Distance
 ## Logisim Circuit Diagram
 <details>
   <summary>Detail</summary>
-
-  > Update a neat logisim circuit diagram
+  
+  Main
+  
+  ![image](main.png)
+  
+  Speed
+  
+  ![image](speed.png)
+  
+  9 bit adder
+  
+  ![image](9bitadder.png)
+  
+  reset
+  
+  ![image](reset.png)
+  
+  Distance
+  
+  ![image](distance.png)
+  
+  13 bit adder
+  
+  ![image](13bitadder.png)
+  
+  Pulse Generator
+  
+  ![image](pulsegenerator.png)
+  
+  Indicator
+  
+  ![image](indicator.png)
 </details>
 
 <!-- Fifth Section -->
