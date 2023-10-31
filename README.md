@@ -46,17 +46,24 @@ environments safer and more accessible.
   <summary>Detail</summary>
 
   BRIEF DESCRIPTION
+  
 The miniproject is called smart bicycle, its main functions are displaying the
 bicycle's speed(km/hr),distance travelled by the bicycle(m), also a button for
 indicators if the user wants to take a turn etc, so the the implementation of all
 the features can be divided into 4 major parts.
+
 1.Clock handling(for displaying accurate speed and reseting it)
+
 2.Calculating current speed and distance travelled(Using flipflops and adders)
+
 3.Implementing the indicator
+
 Let us start with indicator part:
+
 Indicator Buttons:
 You have three buttons - left indicator, right indicator, and parking lights. Each
 button serves a specific purpose:
+
 Left Indicator: When pressed, this button activates the left turn indicator,
 signaling to other road users that the cyclist intends to make a left turn.
 Right Indicator: When pressed, this button activates the right turn indicator,
@@ -65,6 +72,7 @@ Parking Lights: This button activates the parking lights. When the parking light
 are on, both the left and right indicators blink simultaneously, and this is
 commonly used when the cyclist wants to make their presence more noticeable,
 especially in low-light conditions or while stationary.
+
 OR Gates: To begin, the state of the right indicator button and the parking lights
 button are connected to one OR gate, while the state of the left indicator button
 and the parking lights button are connected to another OR gate. These OR gates
@@ -72,15 +80,18 @@ act as logic elements that combine the state of the buttons.
 Clock Input: The output of each OR gate is then linked to an AND gate.
 Additionally, the state of a clock signal is provided as the second input to these
 AND gates.
+
 Parking Lights: When the parking lights button is pressed, it activates both OR
 gates, causing both left and right indicators to blink. The clock signal plays a
 crucial role here.
+
 Indicator Activation:
 If only the left indicator button is pressed, the left indicator OR gate will have a
 high (1) output, and the clock signal will be used to control the blinking effect.
 Similarly, if only the right indicator button is pressed, the right indicator OR gate
 will have a high output, and the clock signal will control the blinking of the right
 indicator.
+
 When the parking lights button is pressed, both OR gates will have high outputs,
 and the clock signal will cause both the left and right indicators to blink together.
 This setup offers a versatile indicator system that responds to the cyclist's
@@ -89,6 +100,7 @@ indicators for enhanced visibility, the system can accommodate these actions
 effectively. The clock signal synchronizes the blinking effect, making the turn
 indicators noticeable and informative to other road users, ultimately enhancing
 safety while cycling
+
 Now let us talk about the speed and distance travelled part:
 Distance does not need to be reset, it just needs to be initialized at 0 and we
 keep adding 0.5 meters every time the hall effect sensor
@@ -100,6 +112,7 @@ magnet is detected and then we need to copy it(the output stays constant for
 the second and keeps getting updated every second) and then reset it. The
 speed counter is of 9 bits and the distance counter is of 13 bits, we can store the
 values in D flipflops and use full adder/half adder to increase the value.
+
 Clock handling part:
 Now we could just use a simple 1hz clock to reset and copy it but there are 2
 main problems. 1)Inaccurate, after some research we found out that 1hz clocks
@@ -112,16 +125,27 @@ and if all the bits are 1(AND of all the bits, this happens every 1 second) a pu
 is given out to reset it, so to copy before this we also send another pulse if the
 bit configuration is 1110(which is just before 1111) so the speed value is copied
 just before it is reset.
+
 Functional Table:
+
 Inputs Result
+
 HES (1sec Pulse) (0.9sec Pulse)  Speed  Distance
+
 0 0 0 NA NA
+
 0 0 1 Updates Display NA
+
 0 1 0 Resets Speed NA
+
 0 1 1 -----------------------------------
+
 1 0 0 +1.8 to Hidden speed +0.5 to distance and Updates
+
 1 0 1 (Updates speed) (+0.5 to Distance and Updates)
+
 1 1 0 (Resets Speed) (+0.5 to Distance and Updates)
+
 1 1 1 ---------------------------------------
 </details>
 
