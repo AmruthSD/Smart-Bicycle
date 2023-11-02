@@ -156,35 +156,35 @@ HES (1sec Pulse) (0.9sec Pulse)  Speed  Distance
   
   Main
   
-  ![image](main.png)
+  ![image](Snapshots/main.png)
   
   Speed
   
-  ![image](speed.png)
+  ![image](Snapshots/speed.png)
   
   9 bit adder
   
-  ![image](9bitadder.png)
+  ![image](Snapshots/9bitadder.png)
   
   reset
   
-  ![image](reset.png)
+  ![image](Snapshots/reset.png)
   
   Distance
   
-  ![image](distance.png)
+  ![image](Snapshots/distance.png)
   
   13 bit adder
   
-  ![image](13bitadder.png)
+  ![image](Snapshots/13bitadder.png)
   
   Pulse Generator
   
-  ![image](pulsegenerator.png)
+  ![image](Snapshots/pulsegenerator.png)
   
   Indicator
   
-  ![image](indicator.png)
+  ![image](Snapshots/indicator.png)
 </details>
 
 <!-- Fifth Section -->
