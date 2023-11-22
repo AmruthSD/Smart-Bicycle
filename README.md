@@ -126,7 +126,7 @@ is given out to reset it, so to copy before this we also send another pulse if t
 bit configuration is 1110(which is just before 1111) so the speed value is copied
 just before it is reset.
 
-![image](Snapshots/Functional Table.png)
+![image](Snapshots/FunctionalTable.png)
 
 
 </details>
