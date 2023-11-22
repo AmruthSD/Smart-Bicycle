@@ -126,27 +126,8 @@ is given out to reset it, so to copy before this we also send another pulse if t
 bit configuration is 1110(which is just before 1111) so the speed value is copied
 just before it is reset.
 
-Functional Table:
+![image](Snapshots/FunctionalTable.png)
 
-Inputs Result
-
-HES (1sec Pulse) (0.9sec Pulse)  Speed  Distance
-
-0 0 0 NA NA
-
-0 0 1 (Updates Display) NA
-
-0 1 0 (Resets Speed) NA
-
-0 1 1 -----------------------------------
-
-1 0 0 (+1.8 to Hidden speed) (+0.5 to distance and Updates)
-
-1 0 1 (Updates speed) (+0.5 to Distance and Updates)
-
-1 1 0 (Resets Speed) (+0.5 to Distance and Updates)
-
-1 1 1 ---------------------------------------
 </details>
 
 <!-- Fourth Section -->
